@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const LeftSideCategory = () => {
     const [categories, setCategories] = useState([]);
-    console.log(categories)
+    // console.log(categories)
 
     useEffect(() =>{
         fetch("http://localhost:5000/courses")

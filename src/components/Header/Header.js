@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LeftSideCategory from '../LeftSideCategory/LeftSideCategory';
+import logo1 from '../../assects/logo1.png'
 
 const Header = () => {
+    
     return (
       <div className="navbar bg-base-100">
         <div className="navbar-start">
@@ -27,36 +30,48 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to={'/'}>Home</Link>
+                <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={'/courses'}>Course</Link>
+                <Link to={"/courses"}>Course</Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link to={"/FAQ"}>FAQ</Link>
               </li>
+              <li>
+                <Link to={"/blogs"}>Blogs</Link>
+              </li>
+              <div className="md:hidden">
+                <LeftSideCategory></LeftSideCategory>
+              </div>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+
+          <img src={logo1} alt="" className="w-[15%] btn btn-ghost" />
+          <Link to={"/"} className="btn btn-ghost normal-case text-xl">
+            Pro Coder
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to={'/'}>Home</Link>
+              <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link to={'/courses'}>Course</Link>
+              <Link to={"/courses"}>Course</Link>
             </li>
             <li>
-                <a href="">FAQ</a>
+              <Link to={"/FAQ"}>FAQ</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to={"/blogs"}>Blogs</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <a className="text-green-700 block hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">
+            Get started
+          </a>
         </div>
       </div>
     );

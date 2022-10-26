@@ -11,14 +11,13 @@ const Main = () => {
         <Header></Header>
 
         <div className=" my-20 flex">
-          <div className="p-5 grid grid-cols-2 border">
+          <div className="mx-10 pl-10  hidden md:block ">
             <LeftSideCategory></LeftSideCategory>
           </div>
-          
-            <div>
-              <Outlet></Outlet>
-            </div>
-          
+
+          <div>
+            <Outlet></Outlet>
+          </div>
         </div>
       </div>
     );

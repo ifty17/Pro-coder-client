@@ -6,7 +6,7 @@ const Home = () => {
     return (
       <div>
         <Header></Header>
-        <div className="flex items-center mt-20 justify-center flex-col sm:flex-col md:flex-row">
+        <div className="flex items-center mt-3 justify-center flex-col sm:flex-col md:flex-row">
           <div className=" w-[90%] md:w-[50%]">
             <h1 className="text-5xl text-left py-5">
               Learn Effectively that will take you towards your goal

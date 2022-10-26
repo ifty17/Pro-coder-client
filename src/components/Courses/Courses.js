@@ -8,7 +8,7 @@ const Courses = () => {
     console.log(cardCourses);
 
   return (
-    <div className="grid grid-cols-3 p-5 gap-4">
+    <div className="grid grid-cols-3 gap-5 pl-20">
         {
             cardCourses.map(course => <CardCourses
             key={course.id}

@@ -7,16 +7,18 @@ import LeftSideCategory from '../components/LeftSideCategory/LeftSideCategory';
 
 const Main = () => {
     return (
-      <div className='mx-5'>
+      <div>
         <Header></Header>
-        
-        <div className="flex">
+
+        <div className=" my-20 flex">
           <div className="p-5 grid grid-cols-2 border">
             <LeftSideCategory></LeftSideCategory>
           </div>
-          <div className="grid grid-cols-10 ">
-            <Outlet></Outlet>
-          </div>
+          
+            <div>
+              <Outlet></Outlet>
+            </div>
+          
         </div>
       </div>
     );

@@ -6,8 +6,8 @@ const Home = () => {
     return (
       <div>
         <Header></Header>
-        <div className="flex items-center my-5 justify-center flex-col sm:flex-col md:flex-row">
-          <div className=" md:w-[50%]">
+        <div className="flex items-center mt-20 justify-center flex-col sm:flex-col md:flex-row">
+          <div className=" w-[90%] md:w-[50%]">
             <h1 className="text-5xl text-left py-5">
               Learn Effectively that will take you towards your goal
             </h1>
@@ -18,7 +18,7 @@ const Home = () => {
               Download course documentation
             </button>
           </div>
-          <div className="w-max">
+          <div className="">
             <img src={homeimg} alt="" />
           </div>
         </div>

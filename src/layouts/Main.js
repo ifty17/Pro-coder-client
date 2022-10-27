@@ -9,7 +9,7 @@ const Main = () => {
         <Header></Header>
 
         <div className=" flex">
-          <div className="mx-10 mt-5 pl-10  hidden md:block ">
+          <div className="mx-10 mt-5 pl-10  hidden md:block sticky">
             <LeftSideCategory></LeftSideCategory>
           </div>
 

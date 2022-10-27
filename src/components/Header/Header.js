@@ -2,9 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LeftSideCategory from '../LeftSideCategory/LeftSideCategory';
 import logo1 from '../../assects/logo1.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../authentication/AuthProvider';
 
 const Header = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+    console.log(user);
     
+    
+    const handleLogOut = () =>{
+        logOut()
+        .then(() => {})
+        .catch(error => console.error(error))
+    }
+
     return (
       <div className="navbar bg-base-100">
         <div className="navbar-start">
@@ -47,7 +59,7 @@ const Header = () => {
             </ul>
           </div>
 
-          <img src={logo1} alt="" className="w-[15%] btn btn-ghost" />
+          <img src={logo1} alt="" className=" w-[40%] md:w-[15%] btn btn-ghost" />
           <Link to={"/"} className="btn btn-ghost normal-case text-xl">
             Pro Coder
           </Link>
@@ -69,9 +81,27 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={'/login'} className="text-green-700 block hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">
-            Login
-          </Link>
+          <>
+            {user?.uid ? (
+              <>
+                <button onClick={handleLogOut} variant="light">
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+              </>
+            )}
+          </>
+          <>
+            <img
+              src={user?.photoURL}
+              style={{ height: "40px" }}
+              className="rounded-full m-3"
+              alt=""
+            />
+          </>
         </div>
       </div>
     );

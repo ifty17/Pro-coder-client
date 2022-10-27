@@ -20,7 +20,7 @@ const CheckOut = () => {
               {details}
             </p>
             <p>${price}</p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary">Confirm Checkout</button>
           </div>
         </div>
       </div>

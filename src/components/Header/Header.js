@@ -81,7 +81,7 @@ const Header = () => {
       <div className="navbar-end">
         {user?.uid ? (
           <>
-            <span>{user?.displayName}</span>
+            
             <button onClick={handleLogOut} className="btn btn-xs">
               Logout
             </button>

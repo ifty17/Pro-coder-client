@@ -7,6 +7,7 @@ import Details from "../components/Details/Details";
 import FAQ from "../components/FAQ/FAQ";
 import Home from "../components/Home/Home";
 import Main from "../layouts/Main";
+import Error from "../Others/Error";
 import Terms from "../Others/Terms";
 import Login from "../SignUp/Login";
 import Register from "../SignUp/Register";
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
   },
 
   {

@@ -1,8 +1,21 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
+import { AuthContext } from './AuthProvider';
 
 const Login = () => {
+
+    const {signIn} = useContext(AuthContext);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        
+    }
+
     return (
       <div className="hero md:mx-32">
         <div className="hero-content ">

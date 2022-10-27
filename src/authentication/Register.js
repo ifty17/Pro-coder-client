@@ -1,14 +1,38 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
+import { AuthContext } from './AuthProvider';
 
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext);
+
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        const name = form.name.value;
+        console.log(email, password, photoURL, name);
+
+        createUser(email, password)
+        .then((result) =>{
+            const user = result.user;
+            console.log(user);
+            form.reset();
+        })
+        .catch(error => console.error(error))
+    }
+
+
     return (
       <div>
         <div className="hero md:mx-32">
           <div className="hero-content ">
             <div className="card  w-96  shadow-2xl bg-base-100">
-              <form className="card-body">
+              <form onSubmit={handleSubmit} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>

@@ -89,25 +89,22 @@ const Header = () => {
         ) : (
           <>
             <Link to={"/login"}>
-              <button className="btn btn-xs">
-                Login
-              </button>
+              <button className="btn btn-xs">Login</button>
             </Link>
           </>
         )}
-        {user?.photoURL ? (
-          <img
-            className="rounded-full"
-            style={{ height: "30px" }}
-            src={user?.photoURL}
-            alt=""
-          />
-        ) : (
-          <FaUser></FaUser>
-        )}
-        {/* <Link to={"/login"} className="btn">
-          Login
-        </Link> */}
+        <div className="tooltip tooltip-bottom mx-3" data-tip={user?.displayName}>
+          {user?.photoURL ? (
+            <img
+              className="rounded-full"
+              style={{ height: "30px" }}
+              src={user?.photoURL}
+              alt=""
+            />
+          ) : (
+            <FaUser></FaUser>
+          )}
+        </div>
       </div>
     </div>
   );

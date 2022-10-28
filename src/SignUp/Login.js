@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -8,9 +8,11 @@ import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const { providerLogin, signIn, githubLogin } = useContext(AuthContext);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
+
 
     const from = location.state?.from?.pathname || '/';
 
@@ -32,8 +34,6 @@ const Login = () => {
             console.error(error);
             setError(error.message);
         })
-
-        
     } 
 
 
@@ -41,13 +41,33 @@ const Login = () => {
 
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
-        .then(result =>{
+          .then((result) => {
             const user = result.user;
+            setError("");
             console.log(user);
-        })
-        .catch(error => console.error(error))
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(error.message);
+          });
         
     }
+
+    const gitHubProvider = new GithubAuthProvider();
+    const handleGitHubSignIn = () =>{
+      githubLogin(gitHubProvider)
+        .then((result) => {
+          const user = result.user;
+          setUser(user);
+          console.log(user);
+        })
+        .catch((error) => {
+          console.error(error);
+          setError(error.message);
+        });
+
+    }
+    
 
 
     return (
@@ -99,7 +119,10 @@ const Login = () => {
                   <span>Login with Google</span>
                 </div>
               </button>
-              <button className=" text-green-700 block hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 mt-3">
+              <button
+                onClick={handleGitHubSignIn}
+                className=" text-green-700 block hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 mt-3"
+              >
                 <div className="flex items-center justify-center gap-2">
                   <FaGithub />
                   <span>Login with GitHub</span>

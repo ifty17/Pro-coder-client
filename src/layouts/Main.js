@@ -5,7 +5,7 @@ import LeftSideCategory from '../components/LeftSideCategory/LeftSideCategory';
 
 const Main = () => {
     return (
-      <div>
+      <div >
         <Header></Header>
 
         <div className=" flex">

@@ -1,6 +1,6 @@
-• Live client site link: 
-• Client site GitHub:
-• Server site GitHub: 
+• Live client site link: https://assignment-10-78b70.web.app/
+• Client site GitHub: https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-ifty17
+• Server site GitHub: https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-ifty17
 
 # Technologies I have used in my Website
 

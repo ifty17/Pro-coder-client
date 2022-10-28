@@ -7,7 +7,7 @@ const LeftSideCategory = () => {
     // console.log(categories)
 
     useEffect(() =>{
-        fetch("http://localhost:5000/courses")
+        fetch("https://assignment10-server-ifty17.vercel.app/courses")
         .then(res => res.json())
         .then(data => setCategories(data));
     }, [])

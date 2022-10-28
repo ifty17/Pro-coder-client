@@ -58,6 +58,7 @@ const Login = () => {
       githubLogin(gitHubProvider)
         .then((result) => {
           const user = result.user;
+          setError('');
           setUser(user);
           console.log(user);
         })
